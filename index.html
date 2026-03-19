@@ -118,6 +118,10 @@
   .landing-spotify { margin-top: 40px; width: 100%; max-width: 500px; }
   .landing-spotify-label { font-size: 8px; letter-spacing: 0.4em; color: var(--gold-dim); margin-bottom: 10px; text-align: left; }
   .landing-spotify iframe { display: block; border: 1px solid var(--border-bright); filter: grayscale(0.2); }
+  /* BACK BUTTON */
+  .back-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 8px; letter-spacing: 0.35em; color: var(--cream-dim); cursor: pointer; padding: 7px 14px; border: 1px solid var(--border); margin-bottom: 28px; transition: all 0.2s; background: transparent; }
+  .back-btn:hover { border-color: var(--gold-dim); color: var(--gold); background: rgba(184,150,46,0.04); }
+  .back-btn::before { content: '←'; font-size: 11px; }
   /* LOADING SCREEN */
   #loader {
     position: fixed; inset: 0; background: #040302; z-index: 99999;
@@ -316,7 +320,7 @@
       <option value="abigale">ABIGALE MORROW — Irregular</option>
       <option value="eudora">EUDORA [NO SURNAME] — Irregular</option>
       <option value="elias">ELIAS CROWE — Contractor</option>
-      <option value="isadora">ISADORA VALE — Inactive</option>
+      <option value="isadora">ISADORA VALE — Deceased</option>
       <option value="helena">HELENA SROFT — Active</option>
       <option value="soren">SOREN LIND — Dissolved</option>
     </select>
@@ -354,7 +358,7 @@
   <div class="nav-group">
     <div class="nav-group-label">External / Inactive</div>
     <div class="nav-item" onclick="show('elias')"><span class="nav-dot dot-external"></span><span class="nav-name">ELIAS CROWE</span><span class="nav-status">CONTRACTOR</span></div>
-    <div class="nav-item" onclick="show('isadora')"><span class="nav-dot dot-external"></span><span class="nav-name">ISADORA VALE</span><span class="nav-status">INACTIVE</span></div>
+    <div class="nav-item" onclick="show('isadora')"><span class="nav-dot dot-deceased"></span><span class="nav-name">ISADORA VALE</span><span class="nav-status deceased">DECEASED</span></div>
     <div class="nav-item" onclick="show('helena')"><span class="nav-dot dot-external"></span><span class="nav-name">HELENA SROFT</span><span class="nav-status">ACTIVE</span></div>
   </div>
 
@@ -392,6 +396,7 @@
 
 <!-- ROWAN -->
 <div id="d-rowan" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">R</span>PHOTO<br>ON FILE</div></div>
@@ -442,6 +447,7 @@
 
 <!-- NYMERA -->
 <div id="d-nymera" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">N</span>PHOTO<br>ON FILE</div></div>
@@ -492,6 +498,7 @@
 
 <!-- JETT -->
 <div id="d-jett" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">J</span>PHOTO<br>ON FILE</div></div>
@@ -532,6 +539,7 @@
 
 <!-- ROXY -->
 <div id="d-roxy" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">R</span>PHOTO<br>ON FILE</div></div>
@@ -568,6 +576,7 @@
 
 <!-- AURELIA -->
 <div id="d-aurelia" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">A</span>PHOTO<br>ON FILE</div></div>
@@ -603,6 +612,7 @@
 
 <!-- TOMAS -->
 <div id="d-tomas" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">T</span>PHOTO<br>ON FILE</div></div>
@@ -639,6 +649,7 @@
 
 <!-- ATLAS -->
 <div id="d-atlas" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">A</span>PHOTO<br>ON FILE</div></div>
@@ -674,6 +685,7 @@
 
 <!-- CLEO -->
 <div id="d-cleo" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">C</span>PHOTO<br>ON FILE</div></div>
@@ -711,6 +723,7 @@
 
 <!-- MATEO -->
 <div id="d-mateo" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">M</span>PHOTO<br>ON FILE</div></div>
@@ -746,6 +759,7 @@
 
 <!-- VIKTOR -->
 <div id="d-viktor" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">V</span>PHOTO<br>ON FILE</div></div>
@@ -782,6 +796,7 @@
 
 <!-- ABIGALE -->
 <div id="d-abigale" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">A</span>PHOTO<br>ON FILE</div></div>
@@ -819,6 +834,7 @@
 
 <!-- EUDORA -->
 <div id="d-eudora" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">E</span>PHOTO<br>ON FILE</div></div>
@@ -855,6 +871,7 @@
 
 <!-- ELIAS -->
 <div id="d-elias" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">E</span>PHOTO<br>ON FILE</div></div>
@@ -890,40 +907,56 @@
 
 <!-- ISADORA -->
 <div id="d-isadora" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">I</span>PHOTO<br>ON FILE</div></div>
+      <div class="stamp-dissolved">DECEASED</div>
     </div>
     <div class="file-meta">
-      <div class="file-id">FILE NO. TR-0088 — INACTIVE / FORMER TRAINER</div>
+      <div class="file-id">FILE NO. TR-0088 — DECEASED / FORMER TRAINER</div>
       <div class="file-name">ISADORA <span class="file-surname">VALE</span></div>
-      <div class="file-role-line">FORMER TRAINER — INACTIVE / NO CURRENT ASSIGNMENT</div>
+      <div class="file-role-line">FORMER TRAINER — DECEASED / CASE CROSS-REFERENCED: W-IRR-01 (MORROW)</div>
       <div class="file-tags">
-        <span class="tag tag-inactive">INACTIVE</span><span class="tag tag-external">NO CURRENT ROLE</span>
+        <span class="tag tag-deceased">DECEASED</span><span class="tag tag-inactive">FILE: RESTRICTED</span>
       </div>
       <div class="qs">
         <div class="qs-cell"><div class="qs-label">Age</div><div class="qs-value">~26–28</div></div>
-        <div class="qs-cell"><div class="qs-label">Prior Assignment</div><div class="qs-value">Early-stage training (Morrow)</div></div>
-        <div class="qs-cell"><div class="qs-label">Training Method</div><div class="qs-value warn">NON-STANDARD — PATIENT APPROACH</div></div>
-        <div class="qs-cell"><div class="qs-label">Current Status</div><div class="qs-value">INACTIVE</div></div>
-        <div class="qs-cell"><div class="qs-label">Operational Relevance</div><div class="qs-value">LOW — CURRENT</div></div>
-        <div class="qs-cell"><div class="qs-label">Reason for Inactivation</div><div class="qs-value redacted">████████████</div></div>
+        <div class="qs-cell"><div class="qs-label">Prior Assignment</div><div class="qs-value">Handler — Abigale Morrow (W-IRR-01)</div></div>
+        <div class="qs-cell"><div class="qs-label">Cause of Death</div><div class="qs-value redacted">████████████████</div></div>
+        <div class="qs-cell"><div class="qs-label">Date of Death</div><div class="qs-value redacted">████████████████</div></div>
+        <div class="qs-cell"><div class="qs-label">Incident Report</div><div class="qs-value flag">FILED — SEE BELOW</div></div>
+        <div class="qs-cell"><div class="qs-label">Cross-Reference</div><div class="qs-value flag">W-IRR-01 / W-IRR-02</div></div>
       </div>
     </div>
   </div>
+
   <div class="section">
-    <div class="sec-head"><div class="sec-title">Personnel Profile</div><div class="sec-line"></div><div class="sec-num">01</div></div>
-    <p class="profile-text">Former trainer, assigned to early-stage conditioning of Abigale Morrow. Isadora Vale employed a non-standard approach — patient, individualized, and less reliant on the suppression-based methodology standard for early-stage conditioning. The results were considered mixed by the time Morrow's assessment was complete, which is generous framing given what Morrow subsequently did.</p>
-    <p class="profile-text">Vale's methods produced a subject who is operationally exceptional and behaviorally irregular in equal measure. Whether the training approach contributed to either outcome is a matter of ongoing internal disagreement. The conversation is academic at this point — Vale has been moved to inactive status, and the methodology is not recommended for replication.</p>
+    <div class="sec-head"><div class="sec-title">Incident Report — IR-0088-F</div><div class="sec-line"></div><div class="sec-num">01</div></div>
+    <div class="cracked-file" data-label="ACQUISITION DIVISION — INCIDENT REPORT">
+      <div class="cracked-file-header">
+        <div class="cracked-file-id">REPORT ID: IR-0088-F | SUBJECT: VALE, ISADORA | FILED BY: ACQUISITION</div>
+        <div class="cracked-file-status">CLOSED</div>
+      </div>
+      <div class="cracked-file-body">
+        <p class="profile-text">Isadora Vale, former trainer assigned to W-IRR-01 (Abigale Morrow), was confirmed deceased following an incident the details of which are classified above standard operational access. Cause of death is redacted pending review. The review has not concluded. It is not expected to conclude.</p>
+        <p class="profile-text">At the time of Vale's death, W-IRR-01 entered an unmonitored decay window. Standard reassignment protocol was initiated by the Director of Compliance. Processing was underway.</p>
+        <p class="profile-text">Before reassignment could be completed, W-IRR-01 left the facility. She returned with a second subject — subsequently designated W-IRR-02 (Eudora) — whom she had located, terminated, and bound herself using an unsupervised application of the weaponization ritual. The ritual was successful. The pairing stabilized. W-IRR-01's decay halted.</p>
+        <p class="profile-text">The Alchemist Division has confirmed that W-IRR-01 performed the ritual correctly and without Alchemist supervision, a binding medium, or any documented prior instruction in conversion procedure. The question of how she acquired this knowledge remains open. Whether Vale communicated ritual knowledge to Morrow at any point during the training assignment has not been determined. It cannot be determined. Vale is dead and Morrow is not forthcoming.</p>
+        <div class="warn-box"><p class="warn-text">This incident report does not conclude that Isadora Vale transmitted ritual knowledge to W-IRR-01. It does not conclude that she did not. The file is closed because Vale is no longer available for questioning and because W-IRR-01's operational output makes further investigation a low institutional priority. This is noted, not endorsed.</p></div>
+      </div>
+    </div>
   </div>
+
   <div class="assessment-box">
-    <p class="assessment-text">No longer relevant to current operations. File retained for reference in the Morrow case documentation only. Methods are not recommended for replication regardless of the combat output they eventually generated. The Morrow assignment is not a template.</p>
-    <div class="assessment-sig">— DIRECTOR OF FIELD OPERATIONS / CLASSIFICATION: INTERNAL</div>
+    <p class="assessment-text">Vale is dead. The file is retained exclusively for cross-reference with the Morrow case. Her training methods, her relationship with W-IRR-01, and the circumstances of her death are all, at this point, secondary to the operational reality that Morrow is functional, paired, and producing results. Whatever Vale was, whatever she knew, whatever she may or may not have passed on — none of it changes what W-IRR-01 did with it. The case is closed. The questions it leaves open are not this division's problem.</p>
+    <div class="assessment-sig">— DIRECTOR OF ACQUISITION / CLASSIFICATION: RESTRICTED</div>
   </div>
 </div>
 
 <!-- HELENA -->
 <div id="d-helena" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">H</span>PHOTO<br>ON FILE</div></div>
@@ -960,6 +993,7 @@
 
 <!-- SOREN -->
 <div id="d-soren" class="dossier">
+  <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
       <div class="file-photo">
