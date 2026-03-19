@@ -115,6 +115,9 @@
   .landing-sub { font-size: 8px; letter-spacing: 0.5em; color: var(--gold-dim); margin-bottom: 36px; line-height: 2.2; }
   .landing-inst { font-family: var(--serif); font-size: 14px; color: var(--cream-dim); font-style: italic; }
   .landing-warn { margin-top: 44px; font-size: 8px; letter-spacing: 0.18em; color: var(--red); line-height: 2.2; }
+  .landing-spotify { margin-top: 40px; width: 100%; max-width: 500px; }
+  .landing-spotify-label { font-size: 8px; letter-spacing: 0.4em; color: var(--gold-dim); margin-bottom: 10px; text-align: left; }
+  .landing-spotify iframe { display: block; border: 1px solid var(--border-bright); filter: grayscale(0.2); }
   /* LOADING SCREEN */
   #loader {
     position: fixed; inset: 0; background: #040302; z-index: 99999;
@@ -197,7 +200,53 @@
   .lore-note p { font-family: var(--serif); font-size: 14px; color: var(--cream-dim); font-style: italic; line-height: 1.7; margin: 0; }
   /* STAMP */
   .inline-stamp { display: inline-block; border: 1px solid var(--red); color: var(--red-bright); font-size: 8px; letter-spacing: 0.25em; padding: 2px 6px; transform: rotate(-2deg); margin-left: 8px; vertical-align: middle; }
-  @media(max-width:768px){ .sidebar{display:none;} .lore-sidebar{display:none;} .content{padding:28px 20px;} .lore-content{padding:28px 20px;} .file-header{flex-direction:column;gap:20px;} .file-name{font-size:36px;} .data-grid{grid-template-columns:1fr;} .qs{grid-template-columns:1fr 1fr;} .class-banner{font-size:7px;padding:5px 16px;} .site-header{padding:16px 20px 14px;} .header-title{font-size:28px;} }
+  /* ── MOBILE DROPDOWNS ── */
+  .mobile-nav { display: none; }
+  @media(max-width: 768px) {
+    .sidebar { display: none; }
+    .lore-sidebar { display: none; }
+    .mobile-nav { display: block; background: var(--paper); border-bottom: 1px solid var(--border-bright); padding: 10px 16px; position: sticky; top: 0; z-index: 50; }
+    .mobile-nav-group { margin-bottom: 8px; }
+    .mobile-nav-group:last-child { margin-bottom: 0; }
+    .mobile-nav-label { font-size: 7px; letter-spacing: 0.35em; color: var(--gold-dim); margin-bottom: 5px; }
+    .mobile-select {
+      width: 100%; background: var(--bg); color: var(--cream);
+      border: 1px solid var(--border-bright); padding: 8px 10px;
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235a4a12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center;
+      cursor: pointer;
+    }
+    .mobile-select:focus { outline: 1px solid var(--gold-dim); }
+    .mobile-select option { background: var(--paper); color: var(--cream); }
+    .content { padding: 24px 16px; }
+    .lore-content { padding: 24px 16px; }
+    .file-header { flex-direction: column; gap: 20px; }
+    .file-name { font-size: 32px; }
+    .file-role-line { font-size: 8px; letter-spacing: 0.12em; }
+    .data-grid { grid-template-columns: 1fr; }
+    .qs { grid-template-columns: 1fr 1fr; }
+    .class-banner { display: none; }
+    .site-header { padding: 14px 16px 12px; flex-direction: column; gap: 6px; align-items: flex-start; }
+    .header-title { font-size: 26px; }
+    .header-org { font-size: 8px; }
+    .header-right { text-align: left; font-size: 8px; }
+    .top-tabs { overflow-x: auto; }
+    .top-tab { padding: 10px 18px; font-size: 8px; white-space: nowrap; }
+    .lore-h1 { font-size: 32px; }
+    .lore-h2 { font-size: 18px; }
+    .lore-table { font-size: 10px; }
+    .lore-table th, .lore-table td { padding: 7px 10px; }
+    .file-tags { gap: 5px; }
+    .tag { font-size: 7px; padding: 2px 7px; }
+    .tab-panel.active .lore-inner { flex-direction: column; }
+    .assessment-box { padding: 14px 16px; }
+    .cracked-file-header { flex-direction: column; gap: 6px; }
+    .load-title { font-size: 42px; }
+    .load-bar-wrap { width: 280px; }
+    .load-log { width: 280px; }
+  }
 </style>
 </head>
 <body>
@@ -235,6 +284,45 @@
 </div>
 
 <div id="tab-personnel" class="tab-panel active">
+
+<!-- MOBILE NAVIGATION -->
+<div class="mobile-nav">
+  <div class="mobile-nav-group">
+    <div class="mobile-nav-label">VENERATORS (HANDLERS)</div>
+    <select class="mobile-select" onchange="show(this.value); this.blur()">
+      <option value="landing">— SELECT VENERATOR FILE —</option>
+      <option value="rowan">ROWAN ASHVANE — Active</option>
+      <option value="jett">JETT CALLOWAY — Active</option>
+      <option value="aurelia">AURELIA VOSS — Active</option>
+      <option value="atlas">ATLAS DVORAK — Active</option>
+      <option value="mateo">MATEO REYES-SALEH — Active</option>
+    </select>
+  </div>
+  <div class="mobile-nav-group">
+    <div class="mobile-nav-label">ASSETS (WEAPONS)</div>
+    <select class="mobile-select" onchange="show(this.value); this.blur()">
+      <option value="landing">— SELECT ASSET FILE —</option>
+      <option value="nymera">NYMERA OSEI — Bound</option>
+      <option value="roxy">ROXY ALCAZAR — Bound</option>
+      <option value="tomas">TOMAS [NO SURNAME] — Bound</option>
+      <option value="cleo">CLEOTILDE MAREN — Bound</option>
+      <option value="viktor">VIKTOR STRAUSS — Bound</option>
+    </select>
+  </div>
+  <div class="mobile-nav-group">
+    <div class="mobile-nav-label">IRREGULAR / EXTERNAL / DECEASED</div>
+    <select class="mobile-select" onchange="show(this.value); this.blur()">
+      <option value="landing">— SELECT FILE —</option>
+      <option value="abigale">ABIGALE MORROW — Irregular</option>
+      <option value="eudora">EUDORA [NO SURNAME] — Irregular</option>
+      <option value="elias">ELIAS CROWE — Contractor</option>
+      <option value="isadora">ISADORA VALE — Inactive</option>
+      <option value="helena">HELENA SROFT — Active</option>
+      <option value="soren">SOREN LIND — Dissolved</option>
+    </select>
+  </div>
+</div>
+
 <div class="layout">
 <nav class="sidebar">
   <div class="sidebar-label">ACTIVE PERSONNEL — SELECT FILE</div>
@@ -285,6 +373,20 @@
     <div class="landing-sub">THE NINTH BUREAU<br>VENERATOR OPERATIONS &amp; WEAPON BINDING PROGRAM<br>ACTIVE PERSONNEL — FORM P-1 SERIES</div>
     <div class="landing-inst">Select a personnel file from the directory to open their dossier.</div>
     <div class="landing-warn">THIS DOCUMENT CONTAINS CLASSIFIED INFORMATION.<br>ALL ASSETS ARE REFERRED TO AS PERSONNEL FOR DOCUMENTATION PURPOSES.<br>UNAUTHORIZED DISTRIBUTION IS A COMPLIANCE-LEVEL OFFENSE.</div>
+
+    <div class="landing-spotify">
+      <div class="landing-spotify-label">⬛ GILDED SPINE — OFFICIAL SOUNDTRACK</div>
+      <iframe
+        src="https://open.spotify.com/embed/playlist/6GTeoZRUbJItUhDqyFSNit?utm_source=generator&theme=0"
+        width="100%"
+        height="80"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        style="border-radius:0;">
+      </iframe>
+    </div>
   </div>
 </div>
 
@@ -903,6 +1005,43 @@
 <!-- LORE TAB -->
 <!-- ══════════════════════════════════════════════════════ -->
 <div id="tab-lore" class="tab-panel">
+
+<!-- MOBILE NAVIGATION -->
+<div class="mobile-nav">
+  <div class="mobile-nav-group">
+    <div class="mobile-nav-label">THE WORLD</div>
+    <select class="mobile-select" onchange="showLore(this.value); this.blur()">
+      <option value="overview">— SELECT WORLD DOCUMENT —</option>
+      <option value="overview">World Overview</option>
+      <option value="aberrants">Aberrants</option>
+      <option value="aesthetic">Aesthetic & Tone</option>
+    </select>
+  </div>
+  <div class="mobile-nav-group">
+    <div class="mobile-nav-label">THE TNB</div>
+    <select class="mobile-select" onchange="showLore(this.value); this.blur()">
+      <option value="overview">— SELECT TNB DOCUMENT —</option>
+      <option value="tnb">What Is The TNB?</option>
+      <option value="hierarchy">Full Hierarchy</option>
+      <option value="venerators">Venerators</option>
+    </select>
+  </div>
+  <div class="mobile-nav-group">
+    <div class="mobile-nav-label">SOUL WEAPONS & CRACKED FILES</div>
+    <select class="mobile-select" onchange="showLore(this.value); this.blur()">
+      <option value="overview">— SELECT DOCUMENT —</option>
+      <option value="weapons">What Are Weapons?</option>
+      <option value="creation">Creation & Conversion</option>
+      <option value="resonance">Resonance System</option>
+      <option value="decay">Venerator Death & Decay</option>
+      <option value="form-w7">⬛ Form W-7 — Weaponization Agreement</option>
+      <option value="code9c">⬛ Internal Code 9-C</option>
+      <option value="report-4821">⬛ Report C9-47-8821</option>
+      <option value="report-0034">⬛ Report C9-51-0034</option>
+    </select>
+  </div>
+</div>
+
 <div class="lore-inner">
 <div class="lore-sidebar">
   <div class="sidebar-label">WORLD ARCHIVE — SELECT</div>
@@ -1400,6 +1539,12 @@ function enterArchive() {
 
 // ── PERSONNEL DOSSIERS ──
 function show(id) {
+  if (!id || id === 'landing') {
+    document.querySelectorAll('.dossier').forEach(d => d.classList.remove('active'));
+    document.getElementById('d-landing').classList.add('active');
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    return;
+  }
   document.querySelectorAll('.dossier').forEach(d => d.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const target = document.getElementById('d-' + id);
@@ -1407,7 +1552,10 @@ function show(id) {
   document.querySelectorAll('.nav-item').forEach(item => {
     if (item.getAttribute('onclick') === `show('${id}')`) item.classList.add('active');
   });
-  document.querySelector('.content').scrollTo({ top: 0, behavior: 'smooth' });
+  // scroll content to top — works for both desktop and mobile
+  const c = document.querySelector('.content');
+  if (c) c.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   target && target.querySelectorAll('.rbar-fill').forEach(b => {
     const w = b.style.width; b.style.width = '0%';
     setTimeout(() => { b.style.width = w; }, 100);
@@ -1425,6 +1573,7 @@ function showLore(id) {
   });
   const lc = document.querySelector('.lore-content');
   if (lc) lc.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ── TAB SWITCHING ──
