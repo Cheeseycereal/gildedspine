@@ -118,6 +118,21 @@
   .landing-spotify { margin-top: 40px; width: 100%; max-width: 500px; }
   .landing-spotify-label { font-size: 8px; letter-spacing: 0.4em; color: var(--gold-dim); margin-bottom: 10px; text-align: left; }
   .landing-spotify iframe { display: block; border: 1px solid var(--border-bright); filter: grayscale(0.2); }
+  /* ASSET PHOTO REVEAL */
+  .file-photo-img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block; position: absolute; inset: 0;
+    filter: grayscale(1) blur(1.5px) brightness(0.85);
+    transition: filter 0.6s ease, transform 0.6s ease;
+    cursor: crosshair;
+  }
+  .file-photo-img:hover {
+    filter: grayscale(0) blur(0px) brightness(1);
+    transform: scale(1.03);
+  }
+  .file-photo.has-img { padding: 0; overflow: hidden; }
+  .file-photo.has-img::before { display: none; }
+  .file-photo.has-img .file-photo-inner { display: none; }
   /* BACK BUTTON */
   .back-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 8px; letter-spacing: 0.35em; color: var(--cream-dim); cursor: pointer; padding: 7px 14px; border: 1px solid var(--border); margin-bottom: 28px; transition: all 0.2s; background: transparent; }
   .back-btn:hover { border-color: var(--gold-dim); color: var(--gold); background: rgba(184,150,46,0.04); }
@@ -450,7 +465,10 @@
   <div class="back-btn" onclick="show('landing')">BACK TO INDEX</div>
   <div class="file-header">
     <div class="file-photo-wrap">
-      <div class="file-photo"><div class="file-photo-inner"><span class="file-photo-initial">N</span>PHOTO<br>ON FILE</div></div>
+      <div class="file-photo has-img">
+        <img class="file-photo-img" src="Nymera_Mugshot.png" alt="W-2281-A" title="HOVER TO REVEAL">
+        <div class="file-photo-inner"><span class="file-photo-initial">N</span>PHOTO<br>ON FILE</div>
+      </div>
       <div class="stamp-asset">ASSET</div>
     </div>
     <div class="file-meta">
