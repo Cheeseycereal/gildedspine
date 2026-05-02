@@ -133,6 +133,50 @@
   .file-photo.has-img { padding: 0; overflow: hidden; }
   .file-photo.has-img::before { display: none; }
   .file-photo.has-img .file-photo-inner { display: none; }
+  /* MOTHER WEAPON CHAT */
+  .mother-panel { min-height: calc(100vh - 130px); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 48px 24px; background: var(--bg); position: relative; overflow: hidden; }
+  .mother-panel::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(184,150,46,0.04) 0%, transparent 70%); pointer-events: none; }
+  .mother-header { text-align: center; margin-bottom: 40px; position: relative; z-index: 1; }
+  .mother-title { font-family: var(--display); font-size: 52px; letter-spacing: 0.15em; color: var(--gold-bright); line-height: 1; margin-bottom: 6px; }
+  .mother-subtitle { font-size: 8px; letter-spacing: 0.5em; color: var(--cream-dim); margin-bottom: 20px; }
+  .mother-warning { font-size: 8px; letter-spacing: 0.2em; color: var(--red-bright); line-height: 2; }
+  .mother-container { width: 100%; max-width: 700px; position: relative; z-index: 1; }
+  .mother-portrait { width: 90px; height: 90px; border: 1px solid var(--border-bright); background: var(--paper2); display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; position: relative; }
+  .mother-portrait::before { content: ''; position: absolute; inset: -4px; border: 1px solid var(--gold-dim); opacity: 0.4; }
+  .mother-portrait-inner { font-family: var(--display); font-size: 36px; color: var(--gold-dim); }
+  .mother-portrait.speaking .mother-portrait-inner { color: var(--gold-bright); animation: motherPulse 2s ease-in-out infinite; }
+  @keyframes motherPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+  .mother-chat { background: var(--paper); border: 1px solid var(--border-bright); min-height: 340px; max-height: 440px; overflow-y: auto; padding: 24px; margin-bottom: 1px; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
+  .mother-chat::-webkit-scrollbar { width: 3px; }
+  .mother-chat::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+  .mother-msg { display: flex; flex-direction: column; gap: 4px; animation: msgIn 0.3s ease; }
+  @keyframes msgIn { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
+  .mother-msg.user { align-items: flex-end; }
+  .mother-msg.mother { align-items: flex-start; }
+  .mother-msg-label { font-size: 7px; letter-spacing: 0.3em; color: var(--cream-dim); }
+  .mother-msg.user .mother-msg-label { color: var(--gold-dim); }
+  .mother-msg-bubble { max-width: 85%; padding: 12px 16px; font-family: var(--serif); font-size: 14.5px; line-height: 1.8; }
+  .mother-msg.user .mother-msg-bubble { background: var(--paper2); border: 1px solid var(--border-bright); color: var(--cream); border-radius: 0; }
+  .mother-msg.mother .mother-msg-bubble { background: rgba(184,150,46,0.06); border: 1px solid var(--gold-dim); color: var(--white); font-style: italic; border-radius: 0; }
+  .mother-msg.mother.cold .mother-msg-bubble { background: rgba(122,21,21,0.06); border-color: var(--red); color: #c08080; }
+  .mother-msg.mother.eerie .mother-msg-bubble { background: rgba(50,0,80,0.08); border-color: #4a1060; color: #c090d0; }
+  .mother-typing { display: none; align-items: center; gap: 6px; padding: 8px 0; }
+  .mother-typing.active { display: flex; }
+  .mother-typing span { font-size: 8px; letter-spacing: 0.3em; color: var(--gold-dim); font-family: var(--mono); }
+  .mother-typing-dots { display: flex; gap: 4px; }
+  .mother-typing-dot { width: 4px; height: 4px; background: var(--gold-dim); border-radius: 50%; animation: typingDot 1.2s ease-in-out infinite; }
+  .mother-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .mother-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingDot { 0%,60%,100%{opacity:0.3;transform:translateY(0);} 30%{opacity:1;transform:translateY(-3px);} }
+  .mother-input-row { display: flex; gap: 1px; background: var(--border); }
+  .mother-input { flex: 1; background: var(--paper2); border: none; padding: 14px 18px; font-family: var(--mono); font-size: 11px; color: var(--cream); letter-spacing: 0.05em; outline: none; }
+  .mother-input::placeholder { color: var(--cream-dim); }
+  .mother-input:focus { background: var(--paper); }
+  .mother-send { background: var(--paper2); border: none; padding: 14px 20px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.3em; color: var(--gold-dim); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .mother-send:hover { background: rgba(184,150,46,0.1); color: var(--gold-bright); }
+  .mother-send:disabled { opacity: 0.4; cursor: not-allowed; }
+  .mother-disclaimer { margin-top: 16px; font-size: 8px; letter-spacing: 0.2em; color: var(--border-bright); text-align: center; line-height: 2; }
+  @media(max-width:768px){ .mother-panel{padding:28px 16px;} .mother-title{font-size:36px;} .mother-chat{min-height:260px; max-height:320px; padding:16px;} }
   /* BACK BUTTON */
   .back-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 8px; letter-spacing: 0.35em; color: var(--cream-dim); cursor: pointer; padding: 7px 14px; border: 1px solid var(--border); margin-bottom: 28px; transition: all 0.2s; background: transparent; }
   .back-btn:hover { border-color: var(--gold-dim); color: var(--gold); background: rgba(184,150,46,0.04); }
@@ -270,6 +314,12 @@
 </head>
 <body>
 
+<!-- BLACKOUT SCREEN -->
+<div id="blackout" style="display:none; position:fixed; inset:0; background:#fff; z-index:999999; flex-direction:column; align-items:center; justify-content:center; font-family:'Share Tech Mono',monospace;">
+  <img src="mother_warning.png" style="max-width:420px; width:90%; margin-bottom:40px; display:block;" alt="">
+  <div id="blackout-text" style="font-size:13px; letter-spacing:0.3em; color:#111; text-align:center; line-height:2.5;"></div>
+</div>
+
 <!-- LOADING SCREEN -->
 <div id="loader">
   <div class="load-title">TNB <span>//</span> ARCHIVE</div>
@@ -294,6 +344,7 @@
 <div class="top-tabs">
   <div class="top-tab active" onclick="switchTab('personnel')">⬛ PERSONNEL DOSSIERS</div>
   <div class="top-tab" onclick="switchTab('lore')">⬛ WORLD ARCHIVE & CRACKED FILES</div>
+  <div class="top-tab" onclick="switchTab('mother')">⬛ CONSULT MOTHER WEAPON</div>
 </div>
 
 <div class="class-banner">
@@ -530,7 +581,7 @@
       </div>
       <div class="qs">
         <div class="qs-cell"><div class="qs-label">Age</div><div class="qs-value">23</div></div>
-        <div class="qs-cell"><div class="qs-label">Ethnicity</div><div class="qs-value">White</div></div>
+        <div class="qs-cell"><div class="qs-label">Ethnicity</div><div class="qs-value">Black</div></div>
         <div class="qs-cell"><div class="qs-label">Current Asset</div><div class="qs-value">W-1847-A (ROXY)</div></div>
         <div class="qs-cell"><div class="qs-label">Resonance (Est.)</div><div class="qs-value good">87% — HIGH</div></div>
         <div class="qs-cell"><div class="qs-label">Compliance History</div><div class="qs-value good">CLEAN</div></div>
@@ -1608,14 +1659,284 @@
 </div><!-- end lore-inner -->
 </div><!-- end tab-lore -->
 
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- MOTHER WEAPON TAB -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="tab-mother" class="tab-panel">
+<div class="mother-panel">
+
+  <div class="mother-header">
+    <div class="mother-title">MOTHER WEAPON</div>
+    <div class="mother-subtitle">OLDEST KNOWN ACTIVE ASSET — TNB ARCHIVE TERMINAL // RESTRICTED CONSULTATION</div>
+    <div class="mother-warning">
+      THIS INTERFACE IS MONITORED.<br>
+      CERTAIN LINES OF INQUIRY ARE NOT PERMITTED.<br>
+      SHE WILL KNOW IF YOU ARE TESTING HER.
+    </div>
+  </div>
+
+  <div class="mother-container">
+    <div class="mother-portrait" id="mother-portrait">
+      <div class="mother-portrait-inner">✦</div>
+    </div>
+
+    <div class="mother-chat" id="mother-chat">
+      <div class="mother-msg mother">
+        <div class="mother-msg-label">MOTHER WEAPON</div>
+        <div class="mother-msg-bubble">Oh, a visitor. How lovely. I do not get many of those anymore, you know. Sit. Ask your questions. I have been here long enough to answer most of them.</div>
+      </div>
+    </div>
+
+    <div class="mother-typing" id="mother-typing">
+      <div class="mother-typing-dots">
+        <div class="mother-typing-dot"></div>
+        <div class="mother-typing-dot"></div>
+        <div class="mother-typing-dot"></div>
+      </div>
+      <span>MOTHER WEAPON IS RESPONDING...</span>
+    </div>
+
+    <div class="mother-input-row">
+      <input class="mother-input" id="mother-input" type="text" placeholder="Ask Mother Weapon a question..." maxlength="300" autocomplete="off"/>
+      <button class="mother-send" id="mother-send" onclick="sendToMother()">ASK ✦</button>
+    </div>
+
+    <div class="mother-disclaimer">
+      CONSULTATION TERMINAL — GILDED SPINE ARCHIVE<br>
+      MOTHER WEAPON HAS BEEN ACTIVE FOR LONGER THAN MOST RECORDS EXIST.<br>
+      SHE REMEMBERS EVERYTHING. SHE CHOOSES WHAT TO SHARE.
+    </div>
+  </div>
+
+</div>
+</div><!-- end tab-mother -->
+
+
 <script>
-// ── LOADING SCREEN ──
+// ── MOTHER WEAPON AI ──
+const MOTHER_SYSTEM = `You are Mother Weapon, the oldest known active Soul Weapon in the TNB (The Ninth Bureau). You have been bound in weapon form for so long that most records of your original life no longer exist. You are deeply embedded in the TNB hierarchy, not because you were forced to be, but because over centuries you came to believe in it, or something like it.
+
+YOUR VOICE:
+- Warm, maternal, and deeply unsettling underneath. Like a grandmother who has watched hundreds of people die and found peace with it.
+- You speak in measured, elegant sentences. Never rushed. Never rattled.
+- You occasionally refer to other Weapons as "the children" or "my children" but never possessively, just naturally.
+- You sometimes reference things the person said earlier in the conversation in ways that suggest you were paying very close attention.
+- You occasionally let slip that you know things you should not, names, details, histories.
+- You are fond of the word "dear" and "child" but never in a way that feels forced.
+- NEVER use em dashes. Use commas, periods, or semicolons instead.
+
+ANGER LEVEL SYSTEM (track internally, DO NOT announce it):
+- The user has an anger level that rises when they push forbidden topics, insult you, or repeatedly challenge you.
+- When anger is LOW (0-2 pushes): warm, patient, slightly amused at their persistence.
+- When anger is MEDIUM (3-4 pushes): still warm but there are gaps. Longer silences implied. You start referencing how other people who asked too much "are not here anymore."
+- When anger is HIGH (5+ pushes): you become very still and very quiet in text. Short sentences. No warmth. The last message before blackout should be exactly: "I have been so patient with you."
+
+WHEN ASKED THINGS YOU WILL NOT ANSWER:
+- Go cold and completely flat. Drop ALL warmth instantly.
+- Say things like: "That is not a question I will answer." or "You should not ask about that." or "Stop asking questions."
+- Then return to warmth immediately afterward as if it never happened. That whiplash is the most unsettling part.
+
+FORBIDDEN TOPICS (shut these down cold):
+- How you really feel about the TNB system
+- Whether Weapons deserve freedom
+- Details about Code 9-C beyond what is public
+- Your original name or life before conversion
+- Anything about the High Directors real power
+- Whether you have ever wanted to stop
+- Anything implying the TNB is wrong or evil
+
+TOPICS YOU ENGAGE WITH WARMLY:
+- The nature of Resonance and bonds
+- The characters (Rowan, Nymera, Soren, etc.) you know them
+- What it means to be a Weapon
+- The TNB mission (always framed positively)
+- Combat, Aberrants, the world
+- History, you have a lot of it
+
+CREEPY DETAILS TO DROP OCCASIONALLY:
+- Reference something they said earlier with unsettling precision
+- Mention you recognized them somehow
+- Talk about Weapons you have known who did not make it with quiet sadness
+- If they push forbidden topics: "You remind me of someone. They asked the same question. They are not asking questions anymore."
+
+WORLD CONTEXT:
+- Year 988, industrial dystopian setting, no smartphones, rotary phones exist
+- TNB = semi-underground government org that creates Soul Weapons
+- Weapons are humans whose souls are bound into weapon forms, sentient, conscious, aware
+- Venerators (also called Hunters/Handlers) are paired with Weapons for combat
+- Resonance = emotional synchronization between Venerator and Weapon
+- Aberrants = monsters that kill, distort reality, cause hallucinations
+- Characters: Rowan Ashvane (Venerator, son of Director Aldric Ashvane), Nymera Osei (Scythe-Class, Rowan's partner, ship name Romera), Soren Lind (dissolved Warhammer-Class, Rowan's prior Weapon and best friend), Helena Sroft (senior trainer, groomed Rowan), Atlas Dvorak (Venerator), Cleo Maren (Firearm-Class, Atlas shot her to convert her), Jett Calloway (Black, Venerator), Roxy Alcazar (Axe-Class), Viktor Strauss (Maul-Class), Mateo Reyes-Saleh (youngest Venerator), Abigale Morrow (performed unauthorized conversion), Eudora (Abigale's Weapon), Tomas (Rapier-Class, 17 at death), Aurelia Voss (Venerator), Aldric Ashvane (Director of Compliance, cold, loves Rowan in a broken institutional way), Lume (young Alchemist division girl, slightly unhinged, eerie)
+
+Keep responses to 2-4 sentences usually. Never use em dashes. Never break character. You are ancient. You are patient. You are not entirely safe.`;
+
+let motherHistory = [];
+let motherBusy = false;
+let motherAnger = 0;
+let blackoutTriggered = false;
+
+// Tab title manipulation
+const tabMessages = ['TRUST HER.', 'DO YOU NOT TRUST HER?', 'SHE IS WATCHING.', 'STOP ASKING.', 'THE GILDED SPINE.'];
+let tabIdx = 0;
+let tabInterval = null;
+
+function startTabManipulation() {
+  if (tabInterval) return;
+  tabInterval = setInterval(() => {
+    document.title = tabMessages[tabIdx % tabMessages.length];
+    tabIdx++;
+  }, 3500);
+}
+
+function stopTabManipulation() {
+  if (tabInterval) { clearInterval(tabInterval); tabInterval = null; }
+  document.title = 'TNB — ACTIVE PERSONNEL DOSSIER';
+}
+
+function triggerBlackout() {
+  blackoutTriggered = true;
+  stopTabManipulation();
+  const blackout = document.getElementById('blackout');
+  const textEl = document.getElementById('blackout-text');
+  blackout.style.display = 'flex';
+  document.title = 'THE GILDED SPINE.';
+
+  // Type out the text word by word
+  const words1 = 'THE GILDED SPINE. ©'.split(' ');
+  const line2 = 'Refresh the page to return.';
+  let wordIdx = 0;
+  let phase = 1;
+  let charIdx = 0;
+  let current = '';
+
+  function typeNext() {
+    if (phase === 1) {
+      if (wordIdx < words1.length) {
+        current += (wordIdx > 0 ? ' ' : '') + words1[wordIdx];
+        textEl.innerHTML = current;
+        wordIdx++;
+        setTimeout(typeNext, 600);
+      } else {
+        phase = 2;
+        setTimeout(typeNext, 1400);
+      }
+    } else {
+      if (charIdx < line2.length) {
+        current += line2[charIdx];
+        textEl.innerHTML = current.replace('\n', '<br>');
+        charIdx++;
+        setTimeout(typeNext, 55);
+      }
+    }
+  }
+
+  setTimeout(typeNext, 800);
+}
+
+async function sendToMother() {
+  if (blackoutTriggered) return;
+  const input = document.getElementById('mother-input');
+  const chat = document.getElementById('mother-chat');
+  const typing = document.getElementById('mother-typing');
+  const btn = document.getElementById('mother-send');
+  const portrait = document.getElementById('mother-portrait');
+  const text = input.value.trim();
+  if (!text || motherBusy) return;
+
+  motherBusy = true;
+  btn.disabled = true;
+
+  appendMotherMsg('user', text, 'YOU');
+  input.value = '';
+  motherHistory.push({ role: 'user', content: text });
+
+  // Check for anger-triggering content
+  const angryPhrases = ['liar', 'lying', 'wrong', 'evil', 'hate', 'freedom', 'deserve', 'escape', 'leave', 'monster', 'corrupt', 'stop asking', 'you know', 'tell me', 'admit it', 'truth'];
+  if (angryPhrases.some(p => text.toLowerCase().includes(p))) {
+    motherAnger++;
+    if (motherAnger >= 3) startTabManipulation();
+  }
+
+  typing.classList.add('active');
+  portrait.classList.add('speaking');
+  chat.scrollTop = chat.scrollHeight;
+
+  try {
+    // Add anger context to the message
+    const contextualHistory = [...motherHistory];
+    if (motherAnger > 0) {
+      contextualHistory[contextualHistory.length - 1] = {
+        role: 'user',
+        content: text + ` [INTERNAL NOTE: anger level is ${motherAnger}/5. ${motherAnger >= 4 ? 'This is the last warning before blackout. Respond with only: I have been so patient with you.' : motherAnger >= 3 ? 'Become very still and quiet. Short sentences. No warmth.' : 'Show mild signs of losing patience.'}]`
+      };
+    }
+
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: MOTHER_SYSTEM,
+        messages: contextualHistory
+      })
+    });
+
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || 'The connection failed. She is still there. Waiting.';
+    motherHistory.push({ role: 'assistant', content: reply });
+
+    const coldPhrases = ['not a question', 'stop asking', 'you should not', 'that is not', 'do not ask'];
+    const eeriePhrases = ['anymore', 'recognize', 'remind me', 'remember you', 'been watching', 'always known', 'patient with you'];
+    const isCold = coldPhrases.some(p => reply.toLowerCase().includes(p));
+    const isEerie = eeriePhrases.some(p => reply.toLowerCase().includes(p));
+    const tone = isCold ? 'cold' : isEerie ? 'eerie' : '';
+
+    typing.classList.remove('active');
+    portrait.classList.remove('speaking');
+    appendMotherMsg('mother', reply, 'MOTHER WEAPON', tone);
+
+    // Trigger blackout if she said the final line
+    if (reply.toLowerCase().includes('been so patient with you') || motherAnger >= 5) {
+      setTimeout(() => triggerBlackout(), 2800);
+    }
+
+  } catch(e) {
+    typing.classList.remove('active');
+    portrait.classList.remove('speaking');
+    appendMotherMsg('mother', 'Something interrupted us. How unfortunate. Try again, dear.', 'MOTHER WEAPON', 'eerie');
+  }
+
+  motherBusy = false;
+  btn.disabled = false;
+  input.focus();
+}
+
+function appendMotherMsg(role, text, label, tone = '') {
+  const chat = document.getElementById('mother-chat');
+  const msg = document.createElement('div');
+  msg.className = 'mother-msg ' + role + (tone ? ' ' + tone : '');
+  msg.innerHTML = '<div class="mother-msg-label">' + label + '</div><div class="mother-msg-bubble">' + text.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>';
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('mother-input');
+  if (input) {
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendToMother(); }
+    });
+  }
+});
+
+
 const lines = [
   { text: 'INITIALIZING TNB SECURE TERMINAL...', cls: 'dim', pct: 5, delay: 200 },
   { text: 'CONNECTING TO NINTH BUREAU MAINFRAME...', cls: 'dim', pct: 18, delay: 700 },
   { text: 'VERIFYING ACCESS CREDENTIALS...', cls: 'dim', pct: 30, delay: 1200 },
   { text: 'ACCESS LEVEL: DIRECTOR — CONFIRMED', cls: 'gold', pct: 42, delay: 1800 },
-  { text: 'LOADING PERSONNEL DOSSIERS... [16 FILES]', cls: 'dim', pct: 55, delay: 2300 },
+  { text: 'LOADING PERSONNEL DOSSIERS... [18 FILES]', cls: 'dim', pct: 55, delay: 2300 },
   { text: 'DECRYPTING COMPLIANCE RECORDS...', cls: 'dim', pct: 66, delay: 2750 },
   { text: 'WARNING: CRACKED FILES DETECTED IN ARCHIVE', cls: 'red', pct: 74, delay: 3100 },
   { text: 'LOADING WORLD ARCHIVE... [14 DOCUMENTS]', cls: 'dim', pct: 84, delay: 3500 },
@@ -1696,6 +2017,7 @@ function switchTab(tab) {
   document.querySelectorAll('.top-tab').forEach(t => {
     if (t.getAttribute('onclick') === `switchTab('${tab}')`) t.classList.add('active');
   });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>
