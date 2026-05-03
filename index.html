@@ -342,15 +342,15 @@
 </header>
 
 <div class="top-tabs">
-  <div class="top-tab active" onclick="switchTab('personnel')">⬛ PERSONNEL DOSSIERS</div>
-  <div class="top-tab" onclick="switchTab('lore')">⬛ WORLD ARCHIVE & CRACKED FILES</div>
-  <div class="top-tab" onclick="switchTab('mother')">⬛ CONSULT MOTHER WEAPON</div>
+  <div class="top-tab active" onclick="switchTab('personnel')">PERSONNEL DOSSIERS</div>
+  <div class="top-tab" onclick="switchTab('lore')">WORLD ARCHIVE & CRACKED FILES</div>
+  <div class="top-tab" onclick="switchTab('mother')">CONSULT MOTHER WEAPON</div>
 </div>
 
 <div class="class-banner">
-  <span>⬛ RESTRICTED — INTERNAL DISTRIBUTION ONLY</span>
+  <span>RESTRICTED — INTERNAL DISTRIBUTION ONLY</span>
   <span>UNAUTHORIZED ACCESS SUBJECT TO IMMEDIATE COMPLIANCE REVIEW</span>
-  <span>NINTH BUREAU — FORM P-1 SERIES ⬛</span>
+  <span>NINTH BUREAU — FORM P-1 SERIES</span>
 </div>
 
 <div id="tab-personnel" class="tab-panel active">
@@ -445,7 +445,7 @@
     <div class="landing-warn">THIS DOCUMENT CONTAINS CLASSIFIED INFORMATION.<br>ALL ASSETS ARE REFERRED TO AS PERSONNEL FOR DOCUMENTATION PURPOSES.<br>UNAUTHORIZED DISTRIBUTION IS A COMPLIANCE-LEVEL OFFENSE.</div>
 
     <div class="landing-spotify">
-      <div class="landing-spotify-label">⬛ GILDED SPINE — OFFICIAL SOUNDTRACK</div>
+      <div class="landing-spotify-label">GILDED SPINE — OFFICIAL SOUNDTRACK</div>
       <iframe
         src="https://open.spotify.com/embed/playlist/6GTeoZRUbJItUhDqyFSNit?utm_source=generator&theme=0"
         width="100%"
@@ -1195,10 +1195,10 @@
       <option value="creation">Creation & Conversion</option>
       <option value="resonance">Resonance System</option>
       <option value="decay">Venerator Death & Decay</option>
-      <option value="form-w7">⬛ Form W-7 — Weaponization Agreement</option>
-      <option value="code9c">⬛ Internal Code 9-C</option>
-      <option value="report-4821">⬛ Report C9-47-8821</option>
-      <option value="report-0034">⬛ Report C9-51-0034</option>
+      <option value="form-w7">Form W-7 — Weaponization Agreement</option>
+      <option value="code9c">Internal Code 9-C</option>
+      <option value="report-4821">Report C9-47-8821</option>
+      <option value="report-0034">Report C9-51-0034</option>
     </select>
   </div>
 </div>
@@ -1669,9 +1669,7 @@
     <div class="mother-title">MOTHER WEAPON</div>
     <div class="mother-subtitle">OLDEST KNOWN ACTIVE ASSET — TNB ARCHIVE TERMINAL // RESTRICTED CONSULTATION</div>
     <div class="mother-warning">
-      THIS INTERFACE IS MONITORED.<br>
-      CERTAIN LINES OF INQUIRY ARE NOT PERMITTED.<br>
-      SHE WILL KNOW IF YOU ARE TESTING HER.
+      THIS INTERFACE IS MONITORED. CERTAIN LINES OF INQUIRY ARE NOT PERMITTED. SHE WILL KNOW IF YOU ARE TESTING HER.
     </div>
   </div>
 
@@ -1680,25 +1678,16 @@
       <div class="mother-portrait-inner">✦</div>
     </div>
 
-    <div class="mother-chat" id="mother-chat">
-      <div class="mother-msg mother">
-        <div class="mother-msg-label">MOTHER WEAPON</div>
-        <div class="mother-msg-bubble">Oh, a visitor. How lovely. I do not get many of those anymore, you know. Sit. Ask your questions. I have been here long enough to answer most of them.</div>
+    <div style="border:1px solid var(--border-bright); padding:40px 32px; text-align:center; background:var(--paper);">
+      <div style="font-size:9px; letter-spacing:0.45em; color:var(--gold-dim); margin-bottom:18px;">TERMINAL STATUS</div>
+      <div style="font-family:'Crimson Pro',serif; font-size:20px; color:var(--cream-dim); font-style:italic; line-height:1.8;">
+        You cannot speak to Mother right now.
       </div>
-    </div>
-
-    <div class="mother-typing" id="mother-typing">
-      <div class="mother-typing-dots">
-        <div class="mother-typing-dot"></div>
-        <div class="mother-typing-dot"></div>
-        <div class="mother-typing-dot"></div>
+      <div style="margin-top:20px; font-size:8px; letter-spacing:0.3em; color:var(--red); line-height:2;">
+        CONSULTATION TERMINAL TEMPORARILY OFFLINE<br>
+        SHE WILL BE AVAILABLE WHEN SHE IS READY.<br>
+        CHECK BACK LATER.
       </div>
-      <span>MOTHER WEAPON IS RESPONDING...</span>
-    </div>
-
-    <div class="mother-input-row">
-      <input class="mother-input" id="mother-input" type="text" placeholder="Ask Mother Weapon a question..." maxlength="300" autocomplete="off"/>
-      <button class="mother-send" id="mother-send" onclick="sendToMother()">ASK ✦</button>
     </div>
 
     <div class="mother-disclaimer">
